@@ -19,4 +19,5 @@ result = 0
 for point in points:
     distance = point.dist_to(first_point)
     result = result + distance
+    first_point = point
 print("Длина ломаной линии = ", result)
