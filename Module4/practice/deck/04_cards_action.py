@@ -20,26 +20,20 @@ class Card:
         return self.suit == other_card.suit
 
 
+cards = []
 values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-hearts_cards = []
-# TODO-1: добавьте в список hearts_cards все червовые карты(от 2-ки до туза)
-for value in values:
-    hearts_cards.append(Card(value, 'Hearts'))
+suits = ["Hearts", "Diamonds", "Spades", "Clubs"]
+# TODO-1: в список cards добавьте ВСЕ карты всех мастей
+for suit in suits:
+    for value in values:
+        cards.append(Card(value, suit))
 
-diamonds_cards = []
-# TODO-2: добавьте в список diamonds_cards все бубновые карты(от туза до 2-ки)
-for value in reversed(values):
-    diamonds_cards.append(Card(value, 'Diamonds'))
 
-# TODO-3: выведите все карты из списка hearts_cards в терминал через запятую в одну строку:
-# Пример вывода: 2♥, 3♥, 4♥ ... A♥
-hearts_cards_str = []
-for card in hearts_cards:
-    hearts_cards_str.append(card.to_str())
-print(", ".join(hearts_cards_str))
+cards_str = []
+for card in cards:
+    cards_str.append(card.to_str())
 
-cards = [
-    Card("2", "Hearts"),
-    Card("3", "Hearts"),
-    Card("4", "Hearts"),
-    ...]
+
+print(f"cards[{len(cards)}]" + ", ".join(cards_str))
+# TODO-2: Выведите карты в формате: cards[кол-во]2♥, 3♥, 4♥ ... A♥, 2♦, 3♦ ... A♦, ...
+#  кол-во берем от размера списка cards
